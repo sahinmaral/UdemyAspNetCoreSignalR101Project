@@ -1,0 +1,51 @@
+@model GetHighlightViewModel
+
+@{
+    ViewBag.Title = "Öne Çıkanlar Güncelleme";
+    Layout = "_AdminLayout";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Var Olan Öne Çıkanları Güncelleme</h4>
+        <div class="row">
+            <div class="col-md">
+                <form asp-action="Update" asp-controller="Highlight" asp-area="Admin" method="post">
+                    <input type="hidden" name="id" value="@Model.Id"/>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="title1">Başlık 1</label>
+                                <input type="text" class="form-control" id="title1" name="title1" placeholder="Başlık 1 giriniz" value="@Model.Title1">
+                            </div>
+                            <div class="form-group">
+                                <label for="description1">Açıklama 1</label>
+                                <textarea class="form-control" rows="5" id="description1" name="description1" placeholder="Açıklama 1 giriniz">@Model.Description1</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="title2">Başlık 2</label>
+                                <input type="text" class="form-control" id="title2" name="title2" placeholder="Başlık 2 giriniz" value="@Model.Title2">
+                            </div>
+                            <div class="form-group">
+                                <label for="description2">Açıklama 2</label>
+                                <textarea class="form-control" rows="5" id="description2" name="description2" placeholder="Açıklama 2 giriniz">@Model.Description2</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="title3">Başlık 3</label>
+                                <input type="text" class="form-control" id="title3" name="title3" placeholder="Başlık 3 giriniz" value="@Model.Title3">
+                            </div>
+                            <div class="form-group">
+                                <label for="description3">Açıklama 3</label>
+                                <textarea class="form-control" rows="5" id="description3" name="description3" placeholder="Açıklama 3 giriniz">@Model.Description3</textarea>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button type="submit" class="btn btn-success">Kaydet</button>
+                            <button type="reset" class="btn btn-danger">İptal et</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+@{
+    ViewBag.Title = "Restorant Masaları";
+    Layout = "_AdminLayout";
+}
+
+<style>
+	.card .card-body.center{
+		justify-content: center;
+		align-items: center;
+		display: flex;
+		height: 120px;
+	}
+	
+</style>
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Anlık Restorant Masaları</h4>
+        <div class="row" id="restaurantTables">
+            
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/microsoft/signalr/dist/browser/signalr.min.js"></script>
+
+    <script type="text/javascript">
+          $(document).ready(async() => {
+              var connection = new signalR.HubConnectionBuilder().withUrl("http://localhost:5229/signalrhub").build();
+              $("#connStatus").text(connection.state);
+              connection.start().then(() => {
+                  $("#connStatus").text(connection.state);
+                  setInterval(() => {
+                      connection.invoke("SendRestaurantTable");
+                  }, 1000);
+    
+              }).catch((err) => { console.log(err) });
+    
+    	      connection.on("ReceiveRestaurantTables", (restaurantTables) => {
+                  const restaurantTableContainer = $("#restaurantTables");
+    		      restaurantTableContainer.empty()
+    		      
+                  restaurantTables.forEach((restaurantTable) => {
+                      let restaurantTableItem = `
+                        <div class="col-md-3">
+                              <div class="card card-stats ${restaurantTable.status ? "card-success" : "card-danger"}">
+                                  <div class="card-body center">
+                                      <div class="row">
+                                          <div class="col-5">
+                                              <div class="icon-big text-center">
+                                                  <i class="fas fa-chair"></i>
+                                              </div>
+                                          </div>
+                                          <div class="col-7 d-flex align-items-center">
+                                              <div class="numbers">
+                                                  <p class="card-category">${restaurantTable.name}</p>
+                                                  <h4 class="card-title">
+                                                      ${restaurantTable.status ? "Müsait" : "Dolu"}
+                                                  </h4>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      `
+                      
+                      restaurantTableContainer.append(restaurantTableItem)
+                  })
+              });
+    	
+    
+    	
+          });
+      </script>
+}

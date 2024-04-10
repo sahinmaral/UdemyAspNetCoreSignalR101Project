@@ -1,0 +1,43 @@
+@model dynamic
+
+@{
+    ViewBag.Title = "İndirimler";
+    Layout = "_Layout";
+    
+    var discounts = ViewBag.Discounts as List<ResultDiscountOfDayViewModel>;
+}
+
+
+<section class="offer_section layout_padding-bottom">
+    <div class="offer_container">
+        <div class="container ">
+            <div class="row">
+                <h1 class="text-center">İndirimler</h1>
+            </div>
+            <div class="row">
+                @foreach (var discount in discounts)
+                {
+                    <div class="col-md-6">
+                        <div class="box">
+                            <div class="img-box d-flex justify-content-center align-items-center">
+                                <img src="@discount.ImageUrl" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    @discount.Title
+                                </h5>
+                                <h6>
+                                    <span>@discount.Amount%</span> İndirim
+                                </h6>
+                                <a href="">
+                                    Sipariş Ver
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

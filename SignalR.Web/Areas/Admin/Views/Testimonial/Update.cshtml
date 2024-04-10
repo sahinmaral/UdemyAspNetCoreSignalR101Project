@@ -1,0 +1,43 @@
+@model GetTestimonialViewModel
+
+@{
+    ViewBag.Title = "Referans Güncelleme";
+    Layout = "_AdminLayout";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Var Olan Referansı Güncelleme</h4>
+        <div class="row">
+            <div class="col-md">
+                <form asp-action="Update" asp-controller="Testimonial" asp-area="Admin" method="post">
+                    <input type="hidden" name="id" value="@Model.Id"/>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="name">Ad Soyad</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Ad Soyad giriniz" value="@Model.Name" />
+                            </div>
+                            <div class="form-group">
+                                <label for="title">Başlık</label>
+                                <input type="text" class="form-control" id="title" name="title" placeholder="Başlık giriniz" value="@Model.Title" />
+                            </div>
+                            <div class="form-group">
+                                <label for="comment">Açıklama</label>
+                                <textarea class="form-control" rows="5" id="comment" name="comment" placeholder="Açıklama giriniz">@Model.Comment</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="imageUrl">Fotoğraf Url</label>
+                                <input type="text" class="form-control" id="imageUrl" name="imageUrl" placeholder="Fotoğraf url giriniz" value="@Model.ImageUrl" />
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button type="submit" class="btn btn-success">Kaydet</button>
+                            <button type="reset" class="btn btn-danger">İptal et</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

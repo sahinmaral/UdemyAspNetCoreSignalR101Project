@@ -1,0 +1,65 @@
+<style>
+    .cart_link{
+        color: white;
+    }
+
+    .cart_link:hover{
+        color: #ffbe33;
+    }
+</style>
+
+<div class="hero_area">
+    <div class="bg-box">
+        <img src="~/feane/images/hero-bg.jpg" alt="">
+    </div>
+    <!-- header section strats -->
+    <header class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg custom_nav-container ">
+                <a class="navbar-brand" href="/">
+                    <span>
+                        Feane
+                    </span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class=""> </span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav  mx-auto ">
+                        <li class="nav-item" active-route="/">
+                            <a class="nav-link" href="/">Anasayfa</a>
+                        </li>
+                        <li class="nav-item" active-route="/Menu">
+                            <a class="nav-link" href="/Menu">Menü</a>
+                        </li>
+                        <li class="nav-item" active-route="/About">
+                            <a class="nav-link" href="/About">Hakkımızda</a>
+                        </li>
+                        <li class="nav-item" active-route="/Reservation">
+                            <a class="nav-link" href="/Reservation">Rezervasyon Oluştur</a>
+                        </li>
+                    </ul>
+                    <div class="user_option">
+                        <a href="" class="user_link">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </a>
+                        <a href="/Basket" class="cart_link">
+                            <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                        </a>
+                        <form class="form-inline">
+                            <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                        </form>
+                        <a href="" class="order_online">
+                            Sipariş Ver
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- end header section -->
+</div>

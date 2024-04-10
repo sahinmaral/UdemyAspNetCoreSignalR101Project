@@ -1,0 +1,82 @@
+@model List<ResultDiscountOfDayViewModel>
+
+@{
+    ViewBag.Title = "Günün İndirimi";
+    Layout = "_AdminLayout";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Günün İndirimi işlemleri</h4>
+        <div class="row">
+            <div class="col-md">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            Günün İndirimi listesi
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-sub">
+                            <p>Günün İndirimi ile ilgili işlemleri aşağıda gerçekleştirebilirsiniz.</p>
+                            <a href="/Admin/DiscountOfDay/Create" class="btn btn-primary">Yeni günün indirimi girişi</a>
+                        </div>
+                        @if (Model.Count == 0)
+                        {
+                            <div class="alert alert-info">
+                                Herhangi bir günün indirimi yok.
+                            </div>
+                        }
+                        else
+                        {
+                            <table class="table table-striped mt-3">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Başlık</th>
+                                    <th scope="col">Miktar</th>
+                                    <th scope="col">Durum</th>
+                                    <th scope="col">İşlemler</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach (var discountOfDay in Model)
+                                {
+                                    <tr>
+                                        <td>@discountOfDay.Id</td>
+                                        <td>@discountOfDay.Title</td>
+                                        <td>@discountOfDay.Amount</td>
+                                        <td>
+                                            @if (discountOfDay.Status)
+                                            {
+                                                <p class="badge badge-success">Aktif</p>
+                                            }
+                                            else
+                                            {
+                                                <p class="badge badge-danger">Deaktif</p>
+                                            }
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-outline-success" href="/Admin/DiscountOfDay/Update/@discountOfDay.Id">Güncelle</a>
+                                            <a class="btn btn-outline-danger" href="/Admin/DiscountOfDay/Delete/@discountOfDay.Id">Sil</a>
+                                            @if (discountOfDay.Status)
+                                            {
+                                                <a class="btn btn-outline-danger" href="/Admin/DiscountOfDay/UpdateStatus/@discountOfDay.Id">Pasif hale getir</a>
+                                            }
+                                            else
+                                            {
+                                                <a class="btn btn-outline-info" href="/Admin/DiscountOfDay/UpdateStatus/@discountOfDay.Id">Aktif hale getir</a>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                                </tbody>
+                            </table>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

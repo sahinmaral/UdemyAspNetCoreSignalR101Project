@@ -1,0 +1,56 @@
+@{
+    ViewBag.Title = "Yeni Ürün";
+    Layout = "_AdminLayout";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Yeni Ürün Oluştur</h4>
+        <div class="row">
+            <div class="col-md">
+                <form asp-action="Create" asp-controller="Product" asp-area="Admin" method="post">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="name">Ad</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Ad giriniz">
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Fiyat</label>
+                                <input type="number" class="form-control" id="price" name="price" placeholder="Fiyat giriniz">
+                            </div>
+                            <div class="form-group">
+                                <label for="categoryId">Kategori</label>
+                                <select class="form-control" id="categoryId" name="categoryId" asp-items="@ViewBag.Categories">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="imageUrl">Fotoğraf</label>
+                                <input type="text" class="form-control" rows="5" id="imageUrl" name="imageUrl" placeholder="Fotoğraf url giriniz"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Açıklama</label>
+                                <textarea class="form-control" rows="5" id="description" name="description" placeholder="Açıklama giriniz"></textarea>
+                            </div>
+                            <div class="form-check">
+                                <label>Durum</label><br/>
+                                <label class="form-radio-label">
+                                    <input class="form-radio-input" type="radio" name="status" value="true" checked="">
+                                    <span class="form-radio-sign">Aktif</span>
+                                </label>
+                                <label class="form-radio-label ml-3">
+                                    <input class="form-radio-input" type="radio" name="status" value="false">
+                                    <span class="form-radio-sign">Deaktif</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button type="submit" class="btn btn-success">Kaydet</button>
+                            <button type="reset" class="btn btn-danger">İptal et</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

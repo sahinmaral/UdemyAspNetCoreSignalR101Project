@@ -1,0 +1,42 @@
+@model GetCategoryViewModel
+
+@{
+    ViewBag.Title = "Kategori Güncelleme";
+    Layout = "_AdminLayout";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Var Olan Kategoriyi Güncelleme</h4>
+        <div class="row">
+            <div class="col-md">
+                <form asp-action="Update" asp-controller="Category" asp-area="Admin" asp-area="Admin" method="post">
+                    <input type="hidden" name="id" value="@Model.Id" />
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="name">Ad</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Ad giriniz" value="@Model.Name">
+                            </div>
+                            <div class="form-check">
+                                <label>Durum</label><br/>
+                                <label class="form-radio-label">
+                                    <input class="form-radio-input" type="radio" name="status" value="true" @(Model.Status ? "checked" : "")>
+                                    <span class="form-radio-sign">Aktif</span>
+                                </label>
+                                <label class="form-radio-label ml-3">
+                                    <input class="form-radio-input" type="radio" name="status" value="false" @(!Model.Status ? "checked" : "")>
+                                    <span class="form-radio-sign">Deaktif</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button type="submit" class="btn btn-success">Kaydet</button>
+                            <button type="reset" class="btn btn-danger">İptal et</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

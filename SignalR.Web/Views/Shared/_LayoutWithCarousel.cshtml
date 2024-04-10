@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+
+@await Component.InvokeAsync("LayoutHeaderPartialComponent")
+@await Component.InvokeAsync("LayoutScriptPartialComponent")
+<body>
+
+@await Component.InvokeAsync("LayoutNavbarWithCarouselPartialComponent")
+
+@RenderBody()
+
+@await Component.InvokeAsync("LayoutFooterPartialComponent")
+
+
+@await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

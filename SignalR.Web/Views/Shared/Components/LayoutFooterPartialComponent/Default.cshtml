@@ -1,0 +1,75 @@
+@using SignalR.Web.ViewModels.Contact
+@{
+    var socialMediaAccounts = ViewBag.SocialMediaAccounts as List<ResultSocialMediaAccountViewModel>;
+    var contact = ViewBag.Contact as ResultContactViewModel;
+}
+
+<footer class="footer_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 footer-col">
+                <div class="footer_contact">
+                    <h4>
+                        İletişime Geçin
+                    </h4>
+                    <div class="contact_link_box">
+                        <a href="@contact.LocationUrl">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <span>
+                                Konum
+                            </span>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <span>
+                               @contact.PhoneNumber
+                            </span>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <span>
+                                @contact.Email
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 footer-col">
+                <div class="footer_detail">
+                    <a href="" class="footer-logo">
+                        @contact.Title
+                    </a>
+                    <p>
+                        @contact.Description
+                    </p>
+                    <div class="footer_social">
+                        @foreach (var socialMediaAccount in socialMediaAccounts)
+                        {
+                            <a href="@socialMediaAccount.Url">
+                                <i class="@socialMediaAccount.Icon" aria-hidden="true"></i>
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 footer-col">
+                <h4>
+                    Çalışma Saatlerimiz
+                </h4>
+                <p>
+                    @contact.OpenDays
+                </p>
+                <p>
+                    @contact.OpenHours
+                </p>
+            </div>
+        </div>
+        <div class="footer-info">
+            <p>
+                &copy; <span id="displayYear"></span> Tüm Hakları Saklıdır<br><br>
+                &copy; <span></span> Geliştiren
+                <a href="https://github.com/sahinmaral" target="_blank">Şahin MARAL</a>
+            </p>
+        </div>
+    </div>
+</footer>

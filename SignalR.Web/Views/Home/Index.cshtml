@@ -1,0 +1,71 @@
+﻿@{
+    Layout = "_LayoutWithCarousel";
+    ViewData["Title"] = "Anasayfa";
+
+    var discounts = ViewBag.Discounts as List<ResultDiscountOfDayViewModel>;
+}
+
+<style>
+    .show-more{
+        width: 150px;
+        padding: 10px 0;
+        background-color: #ffbe33;
+        color: #ffffff;
+        border-radius: 45px;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+        border: none;
+        margin-top: 10px;
+        text-align: center;
+    }
+</style>
+
+<!-- offer section -->
+
+<section class="offer_section layout_padding-bottom">
+    <div class="offer_container">
+        <div class="container ">
+            <div class="row">
+                @foreach (var discount in discounts.Take(2))
+                {
+                    <div class="col-md-6">
+                        <div class="box">
+                            <div class="img-box d-flex justify-content-center align-items-center">
+                                <img src="@discount.ImageUrl" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    @discount.Title
+                                </h5>
+                                <h6>
+                                    <span>@discount.Amount%</span> İndirim
+                                </h6>
+                                <a href="">
+                                    Sipariş Ver
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="row d-flex justify-content-center">
+                <a href="/Discount" class="show-more">Daha fazla</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- end offer section -->
+
+<!-- food section -->
+@await Component.InvokeAsync("ProductShowroomPartialComponent")
+<!-- end food section -->
+
+<!-- about section -->
+@await Component.InvokeAsync("AboutPartialComponent")
+<!-- end about section -->
+
+@await Component.InvokeAsync("CreateReservationPartialComponent")
+
+@await Component.InvokeAsync("TestimonialPartialComponent")

@@ -1,0 +1,94 @@
+@{
+    ViewBag.Title = "Rezervasyon";
+    Layout = "_AdminLayout";
+}
+
+@section Scripts
+{
+    <script type="text/javascript">
+    
+        $(document).ready(() => {
+            const reservationTableBody = $("#reservationTableBody");
+            const reservationTableContainer = $("table");
+            const loadingIcon = $("#loadingIcon");
+            reservationTableContainer.hide();
+            
+            var connection = new signalR.HubConnectionBuilder().withUrl("http://localhost:5229/signalrhub").build();
+            connection.start().then(() => {
+                loadingIcon.show();
+                setInterval(() => {
+                    connection.invoke("SendReservation");
+                }, 1000);
+               
+            }).catch((err) => { console.log(err) });
+
+            connection.on("ReceiveReservations", (reservations) => {
+                loadingIcon.hide();
+                reservationTableContainer.show();
+                reservationTableBody.empty()
+                reservations.forEach((reservation) => {
+                    let tableRow = `
+                    <tr>
+                        <td>${reservation.id}</td>
+                        <td>${reservation.name}</td>
+                        <td>${reservation.phoneNumber}</td>
+                        <td>${reservation.email}</td>
+                        <td>${reservation.personAmount}</td>
+                        <td>
+                            <a class="btn btn-outline-success" href="/Admin/Reservation/Update/${reservation.id}">Güncelle</a>
+                            <a class="btn btn-outline-danger" href="/Admin/Reservation/Delete/${reservation.id}">Sil</a>
+                        </td>
+                    </tr>
+                    `
+                    reservationTableBody.append(tableRow) 
+                })
+            });
+
+        });
+    
+    </script>
+}
+
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Rezervasyon işlemleri</h4>
+        <div class="row">
+            <div class="col-md">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            Rezervasyon listesi
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-sub">
+                            <p>Rezervasyon ile ilgili işlemleri aşağıda gerçekleştirebilirsiniz.</p>
+                            <a href="/AdminReservation/Create" class="btn btn-primary">Yeni rezervasyon girişi</a>
+                        </div>
+                        <div id="loadingIcon" class="text-center">
+                            <i class="fa fa-spinner fa-spin fa-3x"></i>
+                        </div>
+
+                        <table class="table table-striped mt-3">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Ad Soyad</th>
+                                <th scope="col">Telefon numarası</th>
+                                <th scope="col">E-posta</th>
+                                <th scope="col">Kişi sayısı</th>
+                                <th scope="col">İşlemler</th>
+                            </tr>
+                            </thead>
+                            <tbody id="reservationTableBody">
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

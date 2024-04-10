@@ -1,0 +1,49 @@
+@model RegisterUserViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <title>SignalR Restoran Kayıt</title>
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Font-->
+    <link rel="stylesheet" type="text/css" href="~/colorlib-auth-form/css/nunito-font.css">
+    <!-- Main Style Css -->
+    <link rel="stylesheet" href="~/colorlib-auth-form/css/style.css"/>
+    <link rel="stylesheet" href="~/feane/css/bootstrap.css"/>
+</head>
+<body class="form-v6">
+<div class="page-content">
+    <div class="form-v6-content">
+        <div class="form-left">
+            <img src="~/colorlib-auth-form/images/Sauce1.jpg" alt="form" style="width:484px; height:584px">
+        </div>
+        <form class="form-detail" method="post">
+            <h2>Yeni Kullanıcı Kaydı</h2>
+            <div class="form-row">
+                <input type="text" id="firstName" asp-for="FirstName" class="input-text" placeholder="Adınız" required>
+            </div>
+            <div class="form-row">
+                <input type="text" id="lastName" class="input-text" placeholder="Soyadınız" required asp-for="LastName">
+            </div>
+            <div class="form-row">
+                <input type="text" id="userName" class="input-text" placeholder="Kullanıcı Adınız" required asp-for="UserName">
+            </div>
+            <div class="form-row">
+                <input type="text" id="email" class="input-text" placeholder="Email  Addresiniz" asp-for="Email" required pattern="[^@@]+@@[^@@]+.[a-zA-Z]{2,6}">
+            </div>
+            <div class="form-row">
+                <input type="password" id="password" class="input-text" placeholder="Şifreniz" asp-for="Password" required>
+            </div>
+
+            <button class="btn btn-primary w-100">Kayıt Ol</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

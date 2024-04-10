@@ -1,0 +1,50 @@
+@model GetContactViewModel
+
+@{
+    ViewBag.Title = "İletişim Bilgisi Güncelleme";
+    Layout = "_AdminLayout";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Var Olan İletişim Bilgisini Güncelle</h4>
+        <div class="row">
+            <div class="col-md">
+                <form asp-action="Update" asp-controller="Contact" asp-area="Admin" method="post">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="title">Şirketin adı</label>
+                                <input type="text" class="form-control" id="title" name="title" placeholder="Şirketin adını giriniz" value="@Model.Title" />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-posta adresi</label>
+                                <input type="text" class="form-control" id="email" name="email" placeholder="E-posta adresi giriniz" value="@Model.Email"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="phoneNumber">Telefon numarası</label>
+                                <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Telefon numarası giriniz" value="@Model.PhoneNumber"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="locationUrl">Konum Url</label>
+                                <input type="text" class="form-control" id="locationUrl" name="locationUrl" placeholder="Konum url giriniz" value="@Model.LocationUrl"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="openDays">Açılan günler</label>
+                                <input type="text" class="form-control" id="openDays" name="openDays" placeholder="Açılan günleri giriniz" value="@Model.OpenDays"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="openHours">Açılan saatler</label>
+                                <input type="text" class="form-control" id="openHours" name="openHours" placeholder="Açılan saatleri giriniz (09:00 - 19:00)" value="@Model.OpenHours"/>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button type="submit" class="btn btn-success">Kaydet</button>
+                            <button type="reset" class="btn btn-danger">İptal et</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

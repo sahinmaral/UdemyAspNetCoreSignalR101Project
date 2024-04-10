@@ -1,0 +1,82 @@
+@model List<ResultNotificationViewModel>
+
+@{
+    ViewBag.Title = "Bildirimler";
+    Layout = "_AdminLayout";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Bildirim işlemleri</h4>
+        <div class="row">
+            <div class="col-md">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            Bildirim listesi
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-sub">
+                            <p>Bildirim ile ilgili işlemleri aşağıda gerçekleştirebilirsiniz.</p>
+                            <a href="/Admin/Notification/Create" class="btn btn-primary">Yeni bildirim girişi</a>
+                        </div>
+                        @if (Model.Count == 0)
+                        {
+                            <div class="alert alert-info">
+                                Herhangi bir bildirim yok.
+                            </div>
+                        }
+                        else
+                        {
+                            <table class="table table-striped mt-3">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Başlık</th>
+                                    <th scope="col">Açıklama</th>
+                                    <th scope="col">Durum</th>
+                                    <th scope="col">İşlemler</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach (var notification in Model)
+                                {
+                                    <tr>
+                                        <td>@notification.Id</td>
+                                        <td>@notification.Title</td>
+                                        <td>@notification.Description</td>
+                                        <td>
+                                            @if (notification.Status)
+                                            {
+                                                <span class="badge badge-success">Okunmadı</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge badge-danger">Okundu</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-outline-success" href="/Admin/Notification/Update/@notification.Id">Güncelle</a>
+                                            <a class="btn btn-outline-danger" href="/Admin/Notification/Delete/@notification.Id">Sil</a>
+                                            @if (notification.Status)
+                                            {
+                                                <a class="btn btn-outline-warning" href="/Admin/Notification/UpdateStatus/@notification.Id">Okundu olarak işaretle</a>
+                                            }
+                                            else
+                                            {
+                                                <a class="btn btn-outline-info" href="/Admin/Notification/UpdateStatus/@notification.Id">Okunmadı olarak işaretle</a>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                                </tbody>
+                            </table>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

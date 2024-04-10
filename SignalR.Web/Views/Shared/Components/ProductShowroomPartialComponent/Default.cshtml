@@ -1,0 +1,60 @@
+@{
+    var categories = ViewBag.Categories as List<ResultCategoryViewModel>;
+    var products = ViewBag.Products as List<ResultProductWithCategoryViewModel>;
+}
+
+<section class="food_section layout_padding-bottom">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>
+                Öne Çıkan Ürünler
+            </h2>
+        </div>
+        <ul class="filters_menu">
+            <li class="active" data-filter="*">Hepsi</li>
+            @foreach (var category in categories)
+            {
+                <li data-filter=".@category.Name.ToLower()">@category.Name</li>
+            }
+        </ul>
+
+        <div class="filters-content">
+            <div class="row grid">
+                @foreach (var product in products)
+                {
+                    <div class="col-sm-6 col-lg-4 all @product.CategoryName.ToLower()">
+                        <div class="box">
+                            <div>
+                                <div class="img-box">
+                                    <img src="@product.ImageUrl" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        @product.Name
+                                    </h5>
+                                    <p>
+                                        @product.Description
+                                    </p>
+                                    <div class="options">
+                                        <h6>
+                                            @product.Price.ToString("0.00") ₺
+                                        </h6>
+                                        <a href="javascript:void(0)" onclick="addToBasket('@product.Id', '@product.Name')">
+                                            <i class="fas fa-shopping-cart text-white"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="btn-box">
+            <a href="">
+                Daha Fazla
+            </a>
+        </div>
+    </div>
+</section>

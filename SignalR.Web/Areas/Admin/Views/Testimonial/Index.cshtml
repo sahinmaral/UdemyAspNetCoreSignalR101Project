@@ -1,0 +1,62 @@
+@model List<ResultTestimonialViewModel>
+
+@{
+    ViewBag.Title = "Referans";
+    Layout = "_AdminLayout";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Referans işlemleri</h4>
+        <div class="row">
+            <div class="col-md">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            Referans listesi
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-sub">
+                            <p>Referans ile ilgili işlemleri aşağıda gerçekleştirebilirsiniz.</p>
+                            <a href="/AdminTestimonial/Create" class="btn btn-primary">Yeni referans girişi</a>
+                        </div>
+                        @if (Model.Count == 0)
+                        {
+                            <div class="alert alert-info">
+                                Herhangi bir referans yok.
+                            </div>
+                        }
+                        else
+                        {
+                            <table class="table table-striped mt-3">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Ad Soyad</th>
+                                    <th scope="col">Başlık</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach (var testimonial in Model)
+                                {
+                                    <tr>
+                                        <td>@testimonial.Id</td>
+                                        <td>@testimonial.Name</td>
+                                        <td>@testimonial.Title</td>
+                                        <td>
+                                            <a class="btn btn-outline-success" href="/Testimonial/Update/@testimonial.Id">Güncelle</a>
+                                            <a class="btn btn-outline-danger" href="/Testimonial/Delete/@testimonial.Id">Sil</a>
+                                        </td>
+                                    </tr>
+                                }
+                                </tbody>
+                            </table>
+                        }
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

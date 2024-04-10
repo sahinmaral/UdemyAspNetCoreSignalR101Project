@@ -1,0 +1,150 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="12.0.0" />
+      <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
+      <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+      <PackageReference Include="QRCoder-ImageSharp" Version="0.10.0" />
+    </ItemGroup>
+
+<!--    <ItemGroup>-->
+<!--      <_ContentIncludedByDefault Remove="Pages\AdminLayout\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\About\Create.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\About\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\About\Update.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Category\Create.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Category\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Category\Update.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Contact\Create.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Contact\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Contact\Update.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\DiscountOfDay\Create.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\DiscountOfDay\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\DiscountOfDay\Update.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Highlight\Create.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Highlight\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Highlight\Update.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Home\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Home\Privacy.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Product\Create.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Product\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Product\Update.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Reservation\Create.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Reservation\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Reservation\Update.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Shared\Components\AdminLayoutFooterPartialComponent\Default.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Shared\Components\AdminLayoutHeaderPartialComponent\Default.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Shared\Components\AdminLayoutNavbarPartialComponent\Default.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Shared\Components\AdminLayoutScriptPartialComponent\Default.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Shared\Components\AdminLayoutSidebarPartialComponent\Default.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Shared\Error.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Shared\_AdminLayout.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Shared\_Layout.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\SignalRDefault\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\SignalRDefault\Index2.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\SocialMediaAccount\Create.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\SocialMediaAccount\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\SocialMediaAccount\Update.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Statistic\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Testimonial\Create.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Testimonial\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\Testimonial\Update.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\_ViewImports.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Views\_ViewStart.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Shared\Components\AdminLayoutFooterPartialComponent\Default.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Shared\Components\AdminLayoutHeaderPartialComponent\Default.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Shared\Components\AdminLayoutNavbarPartialComponent\Default.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Shared\Components\AdminLayoutScriptPartialComponent\Default.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Shared\Components\AdminLayoutSidebarPartialComponent\Default.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Shared\Error.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Shared\_Layout.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Shared\_ValidationScriptsPartial.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\DiscountOfDay\Create.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\DiscountOfDay\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\DiscountOfDay\Update.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Category\Create.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Category\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Category\Update.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\About\Create.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\About\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\About\Update.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Reservation\Create.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Reservation\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Reservation\Update.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Statistic\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\SignalRDefault\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\SignalRDefault\Index2.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Home\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Home\Privacy.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Testimonial\Create.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Testimonial\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Testimonial\Update.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Highlight\Create.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Highlight\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Highlight\Update.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\SocialMediaAccount\Create.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\SocialMediaAccount\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\SocialMediaAccount\Update.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Contact\Create.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Contact\Index.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Contact\Update.cshtml" />-->
+<!--      <_ContentIncludedByDefault Remove="wwwroot\colorlib\colorlib-regform-32\fonts\Nunito\Nunito-Black.ttf" />-->
+<!--      <_ContentIncludedByDefault Remove="wwwroot\colorlib\colorlib-regform-32\fonts\Nunito\Nunito-BlackItalic.ttf" />-->
+<!--      <_ContentIncludedByDefault Remove="wwwroot\colorlib\colorlib-regform-32\fonts\Nunito\Nunito-Bold.ttf" />-->
+<!--      <_ContentIncludedByDefault Remove="wwwroot\colorlib\colorlib-regform-32\fonts\Nunito\Nunito-BoldItalic.ttf" />-->
+<!--      <_ContentIncludedByDefault Remove="wwwroot\colorlib\colorlib-regform-32\fonts\Nunito\Nunito-ExtraBold.ttf" />-->
+<!--      <_ContentIncludedByDefault Remove="wwwroot\colorlib\colorlib-regform-32\fonts\Nunito\Nunito-ExtraBoldItalic.ttf" />-->
+<!--      <_ContentIncludedByDefault Remove="wwwroot\colorlib\colorlib-regform-32\fonts\Nunito\Nunito-ExtraLight.ttf" />-->
+<!--      <_ContentIncludedByDefault Remove="wwwroot\colorlib\colorlib-regform-32\fonts\Nunito\Nunito-ExtraLightItalic.ttf" />-->
+<!--      <_ContentIncludedByDefault Remove="wwwroot\colorlib\colorlib-regform-32\fonts\Nunito\Nunito-Italic.ttf" />-->
+<!--      <_ContentIncludedByDefault Remove="wwwroot\colorlib\colorlib-regform-32\fonts\Nunito\Nunito-Light.ttf" />-->
+<!--      <_ContentIncludedByDefault Remove="wwwroot\colorlib\colorlib-regform-32\fonts\Nunito\Nunito-LightItalic.ttf" />-->
+<!--      <_ContentIncludedByDefault Remove="wwwroot\colorlib\colorlib-regform-32\fonts\Nunito\Nunito-Regular.ttf" />-->
+<!--      <_ContentIncludedByDefault Remove="wwwroot\colorlib\colorlib-regform-32\fonts\Nunito\Nunito-SemiBold.ttf" />-->
+<!--      <_ContentIncludedByDefault Remove="wwwroot\colorlib\colorlib-regform-32\fonts\Nunito\Nunito-SemiBoldItalic.ttf" />-->
+<!--      <_ContentIncludedByDefault Remove="wwwroot\colorlib\colorlib-regform-32\fonts\Nunito\OFL.txt" />-->
+<!--      <_ContentIncludedByDefault Remove="wwwroot\colorlib\colorlib-regform-32\images\form-v6.jpg" />-->
+<!--    </ItemGroup>-->
+
+    <ItemGroup>
+      <AdditionalFiles Include="Areas\Admin\Views\About\Create.cshtml" />
+      <AdditionalFiles Include="Areas\Admin\Views\About\Update.cshtml" />
+      <AdditionalFiles Include="Areas\Admin\Views\Category\Index.cshtml" />
+      <AdditionalFiles Include="Areas\Admin\Views\Notification\Index.cshtml" />
+      <AdditionalFiles Include="Areas\Admin\Views\QrCode\Index.cshtml" />
+      <AdditionalFiles Include="Areas\Admin\Views\RestaurantTable\Index.cshtml" />
+      <AdditionalFiles Include="Views\Auth\Register.cshtml" />
+      <AdditionalFiles Include="Views\Shared\Components\AboutPartialComponent\Default.cshtml" />
+      <AdditionalFiles Include="Views\Shared\Components\ProductShowroomPartialComponent\Default.cshtml" />
+    </ItemGroup>
+
+<!--    <ItemGroup>-->
+<!--      <UpToDateCheckInput Remove="Views\About\Create.cshtml" />-->
+<!--      <UpToDateCheckInput Remove="Views\Shared\Components\AdminLayoutFooterPartialComponent\Default.cshtml" />-->
+<!--      <UpToDateCheckInput Remove="Views\Shared\Components\AdminLayoutHeaderPartialComponent\Default.cshtml" />-->
+<!--      <UpToDateCheckInput Remove="Views\Shared\Components\AdminLayoutNavbarPartialComponent\Default.cshtml" />-->
+<!--      <UpToDateCheckInput Remove="Views\Shared\Components\AdminLayoutScriptPartialComponent\Default.cshtml" />-->
+<!--      <UpToDateCheckInput Remove="Views\Shared\Components\AdminLayoutSidebarPartialComponent\Default.cshtml" />-->
+<!--      <UpToDateCheckInput Remove="Views\Product\Create.cshtml" />-->
+<!--      <UpToDateCheckInput Remove="Views\Product\Index.cshtml" />-->
+<!--      <UpToDateCheckInput Remove="Views\Product\Update.cshtml" />-->
+<!--      <UpToDateCheckInput Remove="Areas\Admin\Views\Home\Index.cshtml" />-->
+<!--      <UpToDateCheckInput Remove="Areas\Admin\Views\Home\Privacy.cshtml" />-->
+<!--    </ItemGroup>-->
+
+    <ItemGroup>
+      <ProjectReference Include="..\SignalR.DataAccess\SignalR.DataAccess.csproj" />
+      <ProjectReference Include="..\SignalR.Dto\SignalR.Dto.csproj" />
+    </ItemGroup>
+
+</Project>

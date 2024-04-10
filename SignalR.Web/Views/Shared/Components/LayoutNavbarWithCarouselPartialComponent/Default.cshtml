@@ -1,0 +1,148 @@
+@{
+    var advertisement = ViewBag.Advertisement as ResultAdvertisementViewModel;
+}
+
+<style>
+    .cart_link{
+        color: white;
+    }
+
+    .cart_link:hover{
+        color: #ffbe33;
+    }
+</style>
+
+<div class="hero_area">
+    <div class="bg-box">
+        <img src="~/feane/images/hero-bg.jpg" alt="">
+    </div>
+    <!-- header section strats -->
+    <header class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg custom_nav-container ">
+                <a class="navbar-brand" href="/">
+                    <span>
+                        Feane
+                    </span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class=""> </span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto ">
+                        <li class="nav-item" active-route="/">
+                            <a class="nav-link" href="/">Anasayfa</a>
+                        </li>
+                        <li class="nav-item" active-route="/Menu">
+                            <a class="nav-link" href="/Menu">Menü</a>
+                        </li>
+                        <li class="nav-item" active-route="/About">
+                            <a class="nav-link" href="/About">Hakkımızda</a>
+                        </li>
+                        <li class="nav-item" active-route="/Reservation">
+                            <a class="nav-link" href="/Reservation">Rezervasyon Oluştur</a>
+                        </li>
+                    </ul>
+                    <div class="user_option">
+                        <a href="" class="user_link">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </a>
+                        <a class="cart_link" href="/Basket">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        </a>
+                        <form class="form-inline">
+                            <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                        </form>
+                        <a href="" class="order_online">
+                            Sipariş Ver
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section ">
+        <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-7 col-lg-6 ">
+                                <div class="detail-box">
+                                    <h1>
+                                        @advertisement.Title1
+                                    </h1>
+                                    <p>
+                                        @advertisement.Description1
+                                    </p>
+                                    <div class="btn-box">
+                                        <a href="" class="btn1">
+                                            Sipariş Ver
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-7 col-lg-6 ">
+                                <div class="detail-box">
+                                    <h1>
+                                        @advertisement.Title2
+                                    </h1>
+                                    <p>
+                                        @advertisement.Description2
+                                    </p>
+                                    <div class="btn-box">
+                                        <a href="" class="btn1">
+                                            Sipariş Ver
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-7 col-lg-6 ">
+                                <div class="detail-box">
+                                    <h1>
+                                        @advertisement.Title3
+                                    </h1>
+                                    <p>
+                                        @advertisement.Description3
+                                    </p>
+                                    <div class="btn-box">
+                                        <a href="" class="btn1">
+                                            Sipariş Ver
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <ol class="carousel-indicators">
+                    <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+                    <li data-target="#customCarousel1" data-slide-to="1"></li>
+                    <li data-target="#customCarousel1" data-slide-to="2"></li>
+                </ol>
+            </div>
+        </div>
+
+    </section>
+    <!-- end slider section -->
+</div>
